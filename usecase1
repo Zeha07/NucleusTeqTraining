@@ -1,0 +1,26 @@
+import json as js
+import pandas as pd
+
+
+
+json_data = js.load(example)
+print(json_data)
+
+participants = json_data['participants']
+print(type(participants))
+participants
+
+n = json_data['name']
+d= json_data['date']
+c = json_data['completed']
+i = json_data['instructor']
+
+print(type(i))
+data ={}
+for j in range(len(participants)):
+  data.update({"name" : n,"date":d , "completed" :c , "instructor_name": i['name'],"website":i['website'],"participant":participants[j]})
+
+
+df = pd.DataFrame(data)
+df
+df.to_csv('/content/drive/MyDrive/python project/data.csv')
