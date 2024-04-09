@@ -1,7 +1,8 @@
 import json as js
 import pandas as pd
 
-
+example = open('d.json','r')
+type(example)
 
 json_data = js.load(example)
 print(json_data)
@@ -23,4 +24,4 @@ for j in range(len(participants)):
 
 df = pd.DataFrame(data)
 df
-df.to_csv('/content/drive/MyDrive/python project/data.csv')
+df.to_csv('data.csv')
