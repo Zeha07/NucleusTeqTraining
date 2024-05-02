@@ -1,0 +1,5 @@
+uvicorn
+fastApi[all]~=0.104.1
+sqlalchemy
+pydantic
+mysql.connector
