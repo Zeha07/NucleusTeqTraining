@@ -1,6 +1,6 @@
 import mysql.connector  
  # Creating the connection object     
-conn_obj = mysql.connector.connect(host="localhost", user="Python", passwd="PythonCon",database = "Python", auth_plugin = 'mysql_native_password')  
+conn_obj = mysql.connector.connect(host="localhost", user="Python", passwd="PythonCon",database = "Python")  
   # creating the cursor object    
 cur_obj = conn_obj.cursor()  
 print(conn_obj )
