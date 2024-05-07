@@ -8,9 +8,10 @@ def index():
     return {'data':{'Blog list'}} 
 
 @app.get('/blog/unpublished')
-def unpublished():
-    return {'data' : {'unpublished list'}}
-
+def unpublished(limit=10,published : bool = True):
+    
+        return limit 
+   
 @app.get('/blog/{id}')
 def show(id : int):
     return {'data' :id}
