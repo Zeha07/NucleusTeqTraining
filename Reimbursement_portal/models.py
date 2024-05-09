@@ -21,7 +21,12 @@ class Department(Base):
 class User(Base):
     __tablename__ = "user"
     empid = Column(Integer,primary_key=True)
-    email = Column(Ema)
+    email = Column(String(255),unique = True )
+    passwd = Column(String(10))
+    mId = Column(Integer)
+    deptID = Column(Integer)
+    username = Column(String(255) , unique = True)
+    pID = Column(Integer)
 
 
 
