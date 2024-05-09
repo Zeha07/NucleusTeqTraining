@@ -18,3 +18,9 @@ def get_db():
 def add_Position(position : schemas.Addposition , db : Session = Depends(get_db)):
     db_position = crud.add_position(db , position)
     return db_position
+
+
+@app.post("/adddepartment")
+def add_Department(department : schemas.Adddepartment , db : Session = Depends(get_db)):
+    db_department= crud.add_department(db , department)
+    return db_department

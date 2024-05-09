@@ -8,3 +8,9 @@ class Addposition(BaseModel):
      class Config:
         orm_mode = True
 
+
+class Adddepartment(BaseModel):
+     department : str
+     class Config:
+        orm_mode = True
+
