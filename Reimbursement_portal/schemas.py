@@ -21,6 +21,14 @@ class showUser(BaseModel):
    position:str
    department : str
    username:str
+   def __init__(self , email , manager, position,department ,username):
+      self.email = email
+      self.manager = manager
+      self.position = position
+      self.department = department
+      self.username = username
+
+   
 
 class UserBase(showUser):
    passwd :str 

@@ -6,6 +6,7 @@ models.Base.metadata.create_all(bind = engine)
 app = FastAPI()
 
 
+
 def get_db():
     db = SessionLocal()
     try:
@@ -19,6 +20,11 @@ def add_Position(position : schemas.Addposition , db : Session = Depends(get_db)
     db_position = crud.add_position(db , position)
     return db_position
 
+
+@app.post("/trial")
+async def trial(trial : str):
+    print("data recieved")
+    return {"data" : "received"}
 
 @app.post("/adddepartment")
 def add_Department(department : schemas.Adddepartment , db : Session = Depends(get_db)):

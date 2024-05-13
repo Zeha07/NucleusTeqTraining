@@ -1,4 +1,4 @@
-from sqlalchemy import Column , Integer, String
+from sqlalchemy import Column , Integer, String,ForeignKey
 from sqlalchemy.orm import relationship
 
 from database import Base
@@ -23,7 +23,7 @@ class User(Base):
     empid = Column(Integer,primary_key=True)
     email = Column(String(255),unique = True )
     passwd = Column(String(10))
-    mId = Column(Integer)
+    mId = Column(Integer )
     deptID = Column(Integer)
     username = Column(String(255) , unique = True)
     pID = Column(Integer)

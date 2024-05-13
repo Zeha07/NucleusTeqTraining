@@ -29,9 +29,31 @@ def get_departments(db:Session):
     # db.refresh()
     return departments
 
+
+# def show_users(db:Session ,users : models.User):
+    
+#     showuser
+#     return showuser
+
+
 def get_users(db:Session):
     users = db.query(models.User).all()
-    return users
+    # print(users)
+    showuser =[]
+    for user in users:
+        print(user.username)
+        this_department = db.query(models.Department).filter(models.Department.id == user.deptID).first()
+        # db.rollback()
+        # print(this_department)
+        this_position = db.query(models.Position).filter(models.Position.id == user.pID).first()
+        # db.rollback()
+        this_manager = db.query(models.User).filter(models.User.mId == user.mId).first()
+        # db.rollback()
+        showuser.append({"email" : user.email , "department" : this_department.department , "username" : user.username ,"manager" :this_manager.username, "position" : this_position.post})
+    return showuser
+
+
+
 
 def add_user(db : Session , user : schemas.UserBase):
     db_position = db.query(models.Position).filter(models.Position.post ==user.position).first()
