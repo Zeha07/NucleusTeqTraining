@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from fastapi.security import OAuth2PasswordBearer
 
 
-from database import Base
+from    .database import Base
 class Position(Base):
     __tablename__ = "position"
     id = Column(Integer , primary_key = True)
