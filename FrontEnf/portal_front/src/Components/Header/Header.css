@@ -1,0 +1,59 @@
+.header-container {
+    width: 100%;
+    background-color: #373838;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    flex: 1;
+  }
+  
+  .logo-pic {
+    width: 120px;
+    height: auto;
+  }
+  
+  .username {
+    flex: 2;
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    color: #fafafb;
+  }
+  
+  .logout {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .logout-button {
+    background-color: #989b9d;
+    color: rgb(21, 21, 21);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logout-button .button__text {
+    margin-right: 10px;
+  }
+  
+  .logout-button .button__icon {
+    font-size: 12px;
+  }
+  
+  .logout-button:hover {
+    background-color: #0056b3;
+  }
+  

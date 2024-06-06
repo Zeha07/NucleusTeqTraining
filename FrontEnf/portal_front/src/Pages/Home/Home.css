@@ -1,0 +1,101 @@
+/* Home.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.Body-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.buttons-components {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.Claimnew, .SeeAll {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.Claimnew {
+    background-color: #007bff;
+    color: white;
+}
+
+.Claimnew:hover {
+    background-color: #0056b3;
+}
+
+.SeeAll {
+    background-color: #28a745;
+    color: white;
+}
+
+.SeeAll:hover {
+    background-color: #218838;
+}
+
+.Claimtable-component {
+    width: 100%;
+    max-width: 150vw;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.close-button {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.Upload-button, .Back-button, .Register-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 0;
+}
+
+.Upload-button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.Back-button {
+    background-color: #f44336;
+    color: #fff;
+}
+
+.Register-button {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.Upload-button[disabled], .Register-button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.button__text {
+    margin-right: 10px;
+}

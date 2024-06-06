@@ -1,0 +1,57 @@
+.SeeAll-container{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-40%);
+    -webkit-transform: translate(-50%,-40%);
+    transform: translate(-50%,-40%);
+    border: 10px solid #ffffff;
+    border-radius: 10px;
+
+    width: 95vw;
+    height: 95vh;
+box-shadow: 0px 3px 5px #403e44;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    border: 4px solid #5a5656;
+    background: linear-gradient(40deg, #f7f7f4, #525253);		
+
+}
+
+.see-all{
+    position:absolute ;
+    top: 25px;
+    left: 40%;
+    display: flex;
+    flex-direction: row;
+    font-size: 54px;
+    /* background-color: aqua; */
+   
+}
+.Backshow{
+    position: relative;
+    right: 500px;
+}
+
+
+
+.seealltable-responsive{
+  position: relative;
+  max-height: 550px;
+  width: 90%;
+  left: 5%;
+  top: 3%;
+overflow-y: scroll;
+
+
+}
+
+
+
+
+

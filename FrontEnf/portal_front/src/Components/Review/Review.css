@@ -1,0 +1,177 @@
+/* SingleReview.css */
+.Review-container{
+  /* background-color: aqua; */
+  height: 500px;
+  position: relative;
+  width: 100%;
+  
+
+}
+.reviewtable-responsive{
+  background-color: yellow;
+  position: relative;
+  width: 96%;
+  left: 1%;
+  max-height: 450px;
+
+}
+.reviewtable{
+  background-color: rgb(227, 218, 218);
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.reviewtable tbody tr:hover{
+   background-color: #ccc;
+}
+.reviewtable thead {
+  background-color: rgb(127, 142, 245);
+}
+.single-review-container {
+  width: 100%;
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.single-review-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.single-review-header span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.single-review-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.review-value {
+  flex: 1;
+  text-align: right;
+}
+
+.review-image {
+  max-width: 60%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.review-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.review-button {
+  background-color: #252626;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.review-button:hover {
+  transform: scale(1.05);
+}
+
+.button__text {
+  margin-right: 5px;
+}
+
+/* SingleReview.css */
+
+/* .single-review-container {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.single-review-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.single-review-header span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.single-review-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.review-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.review-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.review-value {
+  flex: 1;
+  text-align: right;
+}
+
+
+
+.review-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.review-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.review-button:hover {
+  transform: scale(1.05);
+} */
+
+.review-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button__text {
+  margin-right: 5px;
+}

@@ -1,8 +1,21 @@
 from sqlalchemy.orm import Session
-import models , schemas
+from models import *
+from schemas import *
+import json
+import os 
+import base64
+from uuid import uuid4
+from fastapi.responses import JSONResponse ,FileResponse
+from fastapi import Depends , FastAPI, HTTPException, status , Form ,UploadFile ,File
 
-def add_position(db : Session , post : schemas.Addposition):
-    db_position = models.Position(post = post.post.lower())
+
+UPLOAD_DIRECTORY ="Reimbursement_image"
+if not os.path.exists(UPLOAD_DIRECTORY):
+    os.makedirs(UPLOAD_DIRECTORY)
+
+
+def add_position(db : Session , post : Addposition):
+    db_position = Position(post = post.post.lower())
     db.add(db_position)
     db.commit()
     db.refresh(db_position)
@@ -11,13 +24,13 @@ def add_position(db : Session , post : schemas.Addposition):
 
 
 def get_positions(db:Session):
-    positions = db.query(models.Position).all()
+    positions = db.query(Position).all()
     # db.refresh()
     return positions
 
 
-def add_department(db : Session , department : schemas.Adddepartment):
-    db_department = models.Department(department = department.department.lower())
+def add_department(db : Session , department : str):
+    db_department = Department(department = department.lower())
     db.add(db_department)
     db.commit()
     db.refresh(db_department)
@@ -25,7 +38,7 @@ def add_department(db : Session , department : schemas.Adddepartment):
 
 
 def get_departments(db:Session):
-    departments = db.query(models.Department).all()
+    departments = db.query(Department).all()
     # db.refresh()
     return departments
 
@@ -37,17 +50,17 @@ def get_departments(db:Session):
 
 
 def get_users(db:Session):
-    users = db.query(models.User).all()
+    users = db.query(User).all()
     # print(users)
     showuser =[]
     for user in users:
         print(user.username)
-        this_department = db.query(models.Department).filter(models.Department.id == user.deptID).first()
+        this_department = db.query(Department).filter(Department.id == user.deptID).first()
         # db.rollback()
         # print(this_department)
-        this_position = db.query(models.Position).filter(models.Position.id == user.pID).first()
+        this_position = db.query(Position).filter(Position.id == user.pID).first()
         # db.rollback()
-        this_manager = db.query(models.User).filter(models.User.mId == user.mId).first()
+        this_manager = db.query(User).filter(User.mId == user.mId).first()
         # db.rollback()
         showuser.append({"email" : user.email , "department" : this_department.department , "username" : user.username ,"manager" :this_manager.username, "position" : this_position.post})
     return showuser
@@ -55,15 +68,32 @@ def get_users(db:Session):
 
 
 
-def add_user(db : Session , user : schemas.UserBase):
-    db_position = db.query(models.Position).filter(models.Position.post ==user.position).first()
-    db_department = db.query(models.Department).filter(models.Department.department == user.department).first()
-    if user.manager == "None":
-         db_user = models.User(email = user.email , passwd = user.passwd , deptID = db_department.id , username = user.username , pID = db_position.id   )
-    else :
-        db_manager = db.query(models.User).filter(models.User.username== user.username).first()
-        db_user = db_user = models.User(email = user.email , passwd = user.passwd , mID = db_manager.empid| null, deptID = db_department.id , username = user.username , pID = db_position.id   )
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    return db_user
+def add_user(db : Session , user : RegisterUser):
+         db_user = User(email = user.usermail , passwd = user.password , deptID = user.department , username = user.username , pID = user.position   )
+         db.add(db_user)
+         db.commit()
+         db.refresh(db_user)
+         return db_user
+
+def GetDeptManagers(department : int ,db:Session):
+    managers = db.query(User).filter(User.deptID == department , User.pID==2).all()
+    manager=[]
+    for i in managers:
+        trial = {"username" : i.username , "id" : i.empid}
+        manager.append(trial)
+    print(manager)
+    return manager 
+
+def GetManagerEmp(manager :int ,db:Session):
+     emps =[]
+     db_emps = db.query(User).filter(User.mId==manager).all()
+     for emp in db_emps:
+          trial ={"username" :emp.username ,"id" :emp.empid}
+          emps.append(trial)
+    
+     return emps
+
+def get_all_imbursements(empid,db:Session):
+    imbursements  = db.query(Reimbursement).filter(Reimbursement.empid==empid).all()
+    return imbursements
+

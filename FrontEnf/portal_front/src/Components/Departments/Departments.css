@@ -1,0 +1,189 @@
+.select {
+  color: #333333;
+  font-family: cursive;
+  inline-size: 30%;
+  font-size: 11px;
+}   
+.select-control{
+  width: 100px;
+} 
+body{
+  cursor:pointer ;
+} 
+
+.Main-Screen {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-40%);
+  -webkit-transform: translate(-50%,-40%);
+  transform: translate(-50%,-40%);
+  border: 10px solid #ffffff;
+  border-radius: 10px;
+
+  width: 800px;
+  height: 800px;
+box-shadow: 0px 3px 5px #403e44;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  border: 4px solid #5a5656;
+  background: linear-gradient(40deg, #f7f7f4, #242427);		
+
+}
+.heading{
+  /* background-color: yellow; */
+  position: absolute;
+  top: 15%;
+  left:5%;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  font-size: 45px;
+  font-weight: 30px;
+  width: 700px;
+  color: white;
+}
+.heading-text{
+    left: 130px;
+  position: relative;
+  top: 7px;
+  height: fit-content;
+  width: fit-content;
+  /* background-color: brown; */
+}
+.Page-Elements{
+  position: relative;
+  top:20px;
+  height: 600px;
+  width : 650px;
+  /* background-color: aqua; */
+}
+.del-selectdept{
+  position: relative;
+  width: 450px;
+  top: 195px;
+  left: 70px;
+}
+
+
+.Close-button{
+  /* background-color: yellow; */
+  position: absolute;
+  top: 4px;
+  right : 10px;
+  font-size: 30px;
+  height: 40px;
+  
+}
+.button-icon-text{
+  position: inherit;
+  font-size: 50px;
+  color: #ffffff;
+  /* background-color: turquoise; */
+}
+.Close-button:active,
+.Close-button:focus,
+.Close-button:hover {
+  border-color:  #3d3b3b;
+  outline: #fff;
+  font-size: 16px;
+  /* background-color: chartreuse; */
+  }
+.Save-button{
+  /* position: absolute; */
+  background: #1a1a1b;
+font-size: 14px;
+margin-top: 40px;
+padding: 16px 30px;
+border-radius: 16px;
+border: 1px solid #D4D3E8;
+text-transform: uppercase;
+font-weight: 700;
+display: flex;
+align-items: center;
+width: 100%;
+color: #ffffff;
+box-shadow: 0px 3px 2px #29282a;
+cursor: pointer;
+transition: .2s;
+left: 180px;
+bottom: 80px;
+position: relative;
+margin-left: 10px;
+}
+.Save-button:active,
+.Save-button:focus,
+.Save-button:hover {
+border-color:  #3d3b3b;
+outline: #fff;
+font-size: 16px;
+}
+.Deptname{
+  font-size: 18px;
+  position: relative;
+  top:150px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.Deptname p{
+  font-size: 24px;
+  font-weight: 700;
+}
+.deptname{
+  position: relative;
+  bottom: 4px;
+  border-radius: 12px;
+border: 1px solid #D4D3E8;
+text-transform: uppercase;
+font-weight: 400;
+display: flex;
+align-items: center;
+width: 300px;
+color: #0a0a0a;
+box-shadow: 0px 3px 2px #29282a;
+
+}
+
+.presentdept{
+  position: relative;
+  top: 200px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+
+.Add-button{
+  /* position: absolute; */
+  background: #1a1a1b;
+font-size: 14px;
+margin-top: 40px;
+padding: 16px 30px;
+border-radius: 16px;
+border: 1px solid #D4D3E8;
+text-transform: uppercase;
+font-weight: 700;
+display: flex;
+align-items: center;
+width: 100%;
+color: #ffffff;
+box-shadow: 0px 3px 2px #29282a;
+cursor: pointer;
+transition: .2s;
+left: 280px;
+bottom: 20px;
+position: relative;
+margin-left: 10px;
+}
+.Add-button:active,
+.Add-button:focus,
+.Add-button:hover {
+border-color:  #3d3b3b;
+outline: #fff;
+font-size: 16px;
+}
