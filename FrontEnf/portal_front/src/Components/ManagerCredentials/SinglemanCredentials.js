@@ -6,7 +6,8 @@ const SinglemanCredentials = ({selectManId, showsingleman ,setshowsingleman}) =>
   const [departments, setDepartments] = useState([]);
   const [selectedDept, setSelectedDept] = useState(null);
   const [managers, setManagers] = useState([]);
-  const [selectedManager, setSelectedManager] = useState(null);
+  const [selectedManager, setSelectedManager] = useState({
+    value: 0  });
    const [isSaveDisabled, setIsSaveDisabled] = useState(true);
   
   useEffect(() => {

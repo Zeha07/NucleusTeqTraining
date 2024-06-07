@@ -38,8 +38,8 @@ def add_department(db : Session , department : str):
 
 
 def get_departments(db:Session):
-    departments = db.query(Department).all()
-    # db.refresh()
+    departments = db.query(Department).filter(Department.department != "no_dept").all()
+    db.refresh()
     return departments
 
 
