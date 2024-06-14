@@ -95,9 +95,34 @@ export default function AddDepartment({ showadd, setshowadd }) {
 
         <div className='presentdept'>
           <span><h4>Departments Present</h4></span>
-          {opts.map(opt =>
+          {/* {opts.map(opt =>
             <p key={opt.value}>{opt.department}</p>
-          )}
+          )} */}
+          <div className='addtable-responsive'>
+                <table className='reviewtable table-bordered table-hover'>
+                    <thead >
+                        <tr >
+                            <th>Sr.</th>
+                            <th>Departments</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {opts.length > 0 ? (
+                            opts.map((review, index) => (
+                                <tr >
+                                    <td>{index + 1}</td>
+                                    <td>{review.department}</td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="6">No data available</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         

@@ -19,11 +19,12 @@ import './Login.css'
           body :data,
         });
         if(!response.ok){
-          alert(response.status , response.detail);
+          alert(response.status);
         }
+        
         const result = await response.json();
         // alert(result.position);
-        console.log(result.username);
+        
         if(result.pID === 1)
         navigate('/EmployeeHome' ,{state :result});
       else if(result.pID === 2)
@@ -33,9 +34,9 @@ import './Login.css'
       else 
       alert("error occured")
       // navigate('/Home' ,{state :result})
-      alert(result.username)
-      alert(result.empid)
+      
       }catch (error){
+        alert(error.response.data.detail || "Error Occurred")
         console.log(error);
       }
     }

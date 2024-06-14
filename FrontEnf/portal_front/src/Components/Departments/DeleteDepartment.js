@@ -5,7 +5,7 @@ import './Departments.css'
 import Departments from './Departments';
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-export default function DeleteDepartment({showdel,setshowdel}){
+export default function DeleteDepartment({showDel,setShowDel}){
 
    
 
@@ -14,7 +14,7 @@ export default function DeleteDepartment({showdel,setshowdel}){
 
 const back = (event) =>{
 
-setshowdel(!showdel);
+setShowDel(false);
 
 }
 
@@ -81,7 +81,7 @@ const customStyles = {
         <p className='heading-text'>Delete Department</p> 
         
          <div className='Close-button' >
-     <button class="close-button" onClick={back}>
+     <button class="close-button" onClick={() => setShowDel(false)}>
                         <span  className='button-icon-text' >&times;</span>
                         {/* <i class="button__icon fas fa-chevron-right"></i> */}
                     </button>	

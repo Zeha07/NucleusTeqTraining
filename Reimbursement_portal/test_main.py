@@ -79,7 +79,7 @@ def test_single_employee_credential(client     ):
     data = response.json()
     assert data['curmanager']['username'] == 'managercustomercare01'
 
-def test_get_dept_managers(client     ):
+def test_get_dept_managers(client):
     response = client.post("/getdeptmanagers", data={"department": 39, "empId": 19})
     assert response.status_code == 200
     data = response.json()

@@ -63,7 +63,7 @@ export default function ManagerHome() {
             const data = await res.json();
             console.log('Fetched review data:', data);
             setreviewdata(data);
-            alert("Data received");
+            // alert("Data received");
         } catch (error) {
             console.error("Error fetching review data:", error);
         }
@@ -98,15 +98,13 @@ export default function ManagerHome() {
                             <i className="button__icon fas fa-chevron-right"></i>
                         </button>
                     </div>
-                    <div className='Claimtable-component'>
-                        {/* Add Claimtable component here if needed */}
-                    </div>
+                   
                     <div className='Review-component'>
                         <Review reviewdata={reviewdata} user={user} handlesinglereviewchange={handlesinglereviewchange} />
                     </div>
                     {showsinglereview && <SingleReview singlereviewdata={singlereviewdata} showsinglereview={showsinglereview} setshowsinglereview={setshowsinglereview} user={user} refreshReviewData={fetchReviewData} />}
                     {show && <Claimnew setshow={setshow} show={show} user ={user}/>}
-                    {showall && <SeeAll setshowall={setshowall} showall={showall} />}
+                    {showall && <SeeAll setshowall={setshowall} showall={showall} showalldata={showalldata} />}
                      {showreview && <Claimtable showdata={showdata} showreview={showreview} setshowreview={setshowreview} handlesinglereviewchange={handlesinglereviewchange} singlereviewdata={singlereviewdata} showsinglereview={showsinglereview} setshowsinglereview={setshowsinglereview}  backbuttondisabled={false} />}
                 </div>
             </div>

@@ -85,7 +85,7 @@ const [del ,setdel] = useState(false);
             const data = await res.json();
             console.log('Fetched review data:', data);
             setreviewdata(data);
-            alert("Data received");
+            
         } catch (error) {
             console.error("Error fetching review data:", error);
         }
@@ -107,7 +107,7 @@ const [del ,setdel] = useState(false);
             <Header name="Admin" />
             <div className="buttons-container">
                 <div className="button-wrapper">
-                    <button className="action-button" onClick={() => setShowDel(!showDel)}>
+                    <button className="action-button" onClick={() => setShowDel(true)}>
                         <span className="button__text">Delete Department</span>
                         <i className="button__icon fas fa-chevron-right"></i>
                     </button>
@@ -134,7 +134,7 @@ const [del ,setdel] = useState(false);
             {showsinglereview && <SingleReview singlereviewdata={singlereviewdata} showsinglereview={showsinglereview} setshowsinglereview={setshowsinglereview} user={user} refreshReviewData={fetchReviewData} />}
             {/* {showreview && <Claimtable showdata={showdata} showreview={showreview} setshowreview={setshowreview} handlesinglereviewchange={handlesinglereviewchange} />} */}
             {showemps && <EmployeeCredentials showemps={showemps} setshowemps={setshowemps} empData={empData} handleselectempId={handleselectempId}  />}
-            {showDel && <DeleteDepartment showdel={showDel} setshowdel={setShowDel} />}
+            {showDel && <DeleteDepartment showDel={showDel} setShowDel={setShowDel} />}
             {showadd && <AddDepartment showadd={showadd} setshowadd={setshowadd} />}
             {showManager && <ManagerCredentials showmanager={showManager} setshowmanager={setShowManager} mandata={manData} handleselectManId={handleselectManId} />}
             {showSingleEmp && selectempId && <EmpSingleCred selectempId={selectempId} showsingleemp={showSingleEmp} setshowsingleemp={setshowSingleEmp} del={del} setdel={setdel}/>}

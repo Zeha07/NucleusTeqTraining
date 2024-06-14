@@ -41,18 +41,18 @@ const EmployeeHome = () => {
 
  useEffect(()=>{
      const getUnapproved = async()=>{
-         alert(user.empid)
+         
         try{
-            alert("try entered")
+            
             const form = new FormData()
             form.append("empId" , user.empid)
             const res = await fetch('http://localhost:8000/getselfimbursementsunapproved',{
                 method:'POST',
                 body:form,
             })
-            alert("data fetched")
+            
             const data = await res.json();
-            alert("json")
+            
             // alert(data[0].type)
             setshowdata(data);
         } catch(error){
@@ -75,7 +75,7 @@ const EmployeeHome = () => {
                         <i className="button__icon fas fa-chevron-right"></i>
                     </button>
                  </div>
-                <div className='Claimtable-comp'>
+                <div className='Claimtable-comp-emp'>
                     <Claimtable showdata ={showdata}  handleshowdetails={handleshowdetails} showreview={re} setshowreview={setre} backbuttondisabled={true}/>
                 </div>
                 {show && <Claimnew setshow={setshow} show={show} user={user}  />}

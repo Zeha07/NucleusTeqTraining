@@ -30,8 +30,8 @@ const [showsingle , setshowsingle]  = useState(false);
 // }
 
     return (
-        <div className='Big-Screen'>
-        <div   className='BigContainer-Screen'>
+        <div className='Big-Screen-emp'>
+        <div   className='BigContainer-Screen-emp'>
           <div  className='heading'>
         <p className='heading-text'>Manager Credentials</p> 
         
@@ -45,9 +45,9 @@ const [showsingle , setshowsingle]  = useState(false);
      <div className='Page-Elements'
      >
             
-     <div className='table-container'>               
+     <div className='mantable-container'>               
    
-   <table className='emptable  table-fixed table-bordered table-hover '>
+   <table className='mantable  table-fixed table-bordered table-hover '>
     <thead>
         <tr>
             <td>Sr.</td>

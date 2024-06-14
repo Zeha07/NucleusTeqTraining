@@ -1,2 +1,134 @@
 2024-06-07 01:19:20,353 - main - INFO - Fetched employee credentials for admin
 2024-06-07 01:19:47,522 - main - INFO - Fetched credentials for employee ID: 19
+2024-06-07 11:47:55,947 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "d:\Git\Training\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-06-07 11:55:15,268 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "d:\Git\Training\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-06-07 11:55:43,270 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "d:\Git\Training\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-06-07 12:27:42,687 - main - INFO - User logged in: managercustomercare01
+2024-06-07 12:27:45,129 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 12:27:45,145 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 12:29:10,216 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 12:29:10,226 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 12:35:14,285 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 12:35:16,892 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 12:40:07,901 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 12:40:57,843 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 12:42:11,361 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 12:42:11,361 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 12:42:19,008 - main - INFO - Fetched image for Reimbursement ID: 7
+2024-06-07 12:42:19,014 - main - INFO - Fetched image for Reimbursement ID: 7
+2024-06-07 12:42:28,718 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 12:42:28,723 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 12:43:08,178 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 12:43:08,184 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 14:53:39,942 - main - INFO - New user registration
+2024-06-07 14:53:40,312 - main - INFO - New user registered: emp01
+2024-06-07 14:53:54,957 - main - INFO - User logged in: admin01
+2024-06-07 14:54:31,531 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 14:54:31,541 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 14:54:44,715 - main - INFO - User logged in: admin01
+2024-06-07 14:54:44,747 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 14:54:44,762 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 14:59:19,122 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 14:59:44,506 - main - INFO - Fetched employee credentials for admin
+2024-06-07 15:03:24,259 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:03:24,280 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:05:59,952 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:05:59,967 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:06:51,311 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:07:19,500 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:07:55,055 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:07:55,065 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 15:19:03,587 - main - INFO - Fetched employee credentials for admin
+2024-06-07 15:21:53,989 - main - INFO - Fetched employee credentials for admin
+2024-06-07 15:27:03,705 - main - INFO - Fetched manager credentials
+2024-06-07 15:33:03,613 - main - INFO - Fetched department managers for department ID: 39
+2024-06-07 15:40:24,926 - main - WARNING - Incorrect password attempt for username: managercustomercare01
+2024-06-07 15:40:39,318 - main - INFO - User logged in: managercustomercare01
+2024-06-07 15:40:39,368 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 15:40:39,379 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 15:41:16,164 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 15:41:20,407 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 15:42:58,617 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 15:43:04,111 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 15:43:08,780 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 15:45:51,889 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 15:47:29,267 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 15:47:36,498 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 15:47:43,387 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 15:47:57,107 - main - INFO - Fetched image for Reimbursement ID: 7
+2024-06-07 15:47:57,127 - main - INFO - Fetched image for Reimbursement ID: 7
+2024-06-07 15:48:12,599 - main - WARNING - Incorrect password attempt for username: employeecustomercare01
+2024-06-07 15:48:21,587 - main - INFO - User logged in: employeecustomercare01
+2024-06-07 15:48:24,046 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:48:25,209 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:50:01,659 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:50:54,062 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 15:50:54,080 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 15:51:05,053 - main - INFO - Fetched all reimbursements for employee ID: 30
+2024-06-07 15:51:18,404 - main - INFO - User logged in: managercustomercare01
+2024-06-07 15:51:18,438 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 15:51:18,454 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 15:51:22,744 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 15:51:26,031 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 15:52:49,596 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 15:53:57,649 - main - INFO - User logged in: employeecustomercare01
+2024-06-07 15:54:32,783 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:54:33,991 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:54:37,130 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:54:46,717 - main - INFO - User logged in: employeecustomercare01
+2024-06-07 15:54:46,757 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 15:54:46,776 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:03:53,972 - main - INFO - User logged in: admin01
+2024-06-07 16:03:54,016 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 16:03:54,051 - main - INFO - Fetched reimbursements to review for admin
+2024-06-07 16:04:40,121 - main - INFO - Fetched employee credentials for admin
+2024-06-07 16:04:45,716 - main - INFO - Fetched credentials for employee ID: 30
+2024-06-07 16:04:46,914 - main - INFO - Fetched credentials for employee ID: 30
+2024-06-07 16:04:58,939 - main - INFO - Fetched employee credentials for admin
+2024-06-07 16:05:03,166 - main - INFO - Fetched manager credentials
+2024-06-07 16:05:11,670 - main - INFO - Fetched department managers for department ID: 39
+2024-06-07 16:05:50,248 - main - INFO - User logged in: managercustomercare01
+2024-06-07 16:05:50,277 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 16:05:50,298 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 16:06:10,737 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 16:06:18,984 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 16:06:24,189 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 16:06:30,249 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-07 16:06:34,788 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 16:06:34,795 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 16:08:25,792 - main - INFO - User logged in: employeecustomercare01
+2024-06-07 16:08:25,842 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:08:25,851 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:08:38,758 - main - INFO - Fetched all reimbursements for employee ID: 30
+2024-06-07 16:09:17,042 - main - INFO - User logged in: employeecustomercare01
+2024-06-07 16:09:17,107 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:09:17,118 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:09:31,245 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 16:09:31,254 - main - INFO - Fetched image for Reimbursement ID: 6
+2024-06-07 16:10:57,372 - main - INFO - Uploading file for employee ID: 30, type: Electronics, amount: 1400, date: 2024-06-07
+2024-06-07 16:10:57,385 - main - INFO - File uploaded successfully by employee ID: 30, Reimbursement ID: 10
+2024-06-07 16:11:07,252 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:11:07,340 - main - INFO - Fetched unapproved reimbursements for employee ID: 30
+2024-06-07 16:11:12,300 - main - INFO - Fetched image for Reimbursement ID: 10
+2024-06-07 16:11:12,305 - main - INFO - Fetched image for Reimbursement ID: 10
+2024-06-07 16:13:22,346 - main - WARNING - Incorrect password attempt for username: managercustomercare01
+2024-06-07 16:14:46,987 - main - INFO - User logged in: managercustomercare01
+2024-06-07 16:14:47,032 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 16:14:47,048 - main - INFO - Fetched reimbursements to review for manager ID: 19
+2024-06-07 16:15:16,959 - main - INFO - Fetched all reimbursements for employee ID: 19
+2024-06-07 16:15:45,788 - main - INFO - Fetched unapproved reimbursements for employee ID: 19

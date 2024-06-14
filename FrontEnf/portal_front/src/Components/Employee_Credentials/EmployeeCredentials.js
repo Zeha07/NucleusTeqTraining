@@ -7,10 +7,10 @@ export default function EmployeeCredentials({ showemps, setshowemps, empData, ha
     const [k, setkey] = useState();
 
     return (
-        <div className='Big-Screen'>
-        <div   className='BigContainer-Screen'>
+        <div className='Big-Screen-emp'>
+        <div   className='BigContainer-Screen-emp'>
           <div  className='heading'>
-        <p className='heading-text'>Employee Credentials</p> 
+        <p className='heading-text-emp'>Employee Credentials</p> 
         
          <div className='Close-button' >
      <button class="close-button" onClick={(event) => setshowemps(false)}>

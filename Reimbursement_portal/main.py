@@ -12,7 +12,7 @@ import os
 import base64
 from uuid import uuid4
 import logging
-
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 # Setup logging
 LOG_FILENAME = 'app.log'
 logging.basicConfig(level=logging.INFO,
@@ -48,6 +48,8 @@ def get_db():
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
+############################################################################################################
+###############################################################################################
 # departments apis
 @app.get("/getDepartments", response_model=List[DepartmentModel])
 async def get_departments(db: Session = Depends(get_db)):
@@ -76,14 +78,33 @@ async def Deldepartment(deptId: int = Form(...), db: Session = Depends(get_db)):
 
 # register apis
 @app.post("/register")
-async def Register(position: int = Form(...), department: int = Form(...), usermail: str = Form(...), password: str = Form(...), username: str = Form(...), db: Session = Depends(get_db)):
-    logger.info(f"New user registeration")
-    db_user = User(pID=position, deptID=department, email=usermail, passwd=password, username=username, mId=29)
-    db.add(db_user)
-    db.commit()
-    db.refresh(db_user)
-    logger.info(f"New user registered: {username}")
-    return db_user
+async def Register(
+    position: int = Form(...),
+    department: int = Form(...),
+    usermail: str = Form(...),
+    password: str = Form(...),
+    username: str = Form(...),
+    db: Session = Depends(get_db)
+):
+    try:
+        logger.info("New user registration")
+        db_user = User(pID=position, deptID=department, email=usermail, passwd=password, username=username, mId=29)
+        db.add(db_user)
+        db.commit()
+        db.refresh(db_user)
+        logger.info(f"New user registered: {username}")
+        return db_user
+    except IntegrityError as e:
+        logger.error(f"Integrity error during user registration: {e}")
+        db.rollback()  # Rollback the transaction
+        raise HTTPException(status_code=400, detail="User with this email or username already exists")
+    except SQLAlchemyError as e:
+        logger.error(f"Database error during user registration: {e}")
+        db.rollback()  # Rollback the transaction
+        raise HTTPException(status_code=500, detail="Internal server error")
+    except Exception as e:
+        logger.error(f"Unexpected error during user registration: {e}")
+        raise HTTPException(status_code=500, detail="An unexpected error occurred")
 
 # login apis
 @app.post("/login")

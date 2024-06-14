@@ -106,6 +106,7 @@ let navigate = useNavigate();
       alert("Registered successfully");
       navigate('/')
     }catch (error){
+      alert(error.response.data.detail || "Error while Registering")
       console.log(error);
     }
   };

@@ -42,13 +42,16 @@ class UserBase(showUser):
 
 
 
-class Adduser(UserBase):
-   # class UserBase(BaseModel):
+# class User(UserBase):
+class UserBase(BaseModel):
    # email :str 
    # passwd :str 
    mID : int | None
    pID:int
    deptID : int
+   usermail:str
+   username:str
+   hashed_password:str
    # username:str
    class Config:
       orm_mode = True
