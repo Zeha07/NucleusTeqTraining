@@ -9,8 +9,20 @@ import './Login.css'
     const [pass , setpass] = useState('');
     
     const Login =async (e) =>{
+
+      if(username ===''){
+        alert("provide valid username !");
+        setpass('');
+      }
+      else if(pass === ''){
+        alert("No password provided !! ");
+        setusername('');
+      }
+
+      else {
       e.preventDefault();
       const data  = new FormData();
+      
       data.append("username" , username);
       data.append("password" , pass.toString());
       try{
@@ -31,14 +43,16 @@ import './Login.css'
         navigate('/ManagerHome',{state :result})
       else if(result.pID ===3)
         navigate('/AdminHome',{state :result})
-      else 
-      alert("error occured")
-      // navigate('/Home' ,{state :result})
       
-      }catch (error){
-        alert(error.response.data.detail || "Error Occurred")
-        console.log(error);
+      else{
+        alert(result.detail );
+        setusername('');
+        setpass('');
       }
+      }catch (error){
+        alert(error.message());
+      }
+    }
     }
     
     
@@ -51,7 +65,7 @@ import './Login.css'
             </div>
           <form     >
            <div  className='Username-login'>
-            <input type='text' placeholder='Enter Username'   onInput={(e)=>setusername(e.target.value)}  id='user-name-login' defaultValue={username}/>
+            <input type='text' placeholder='Enter Username'   onInput={(e)=>setusername(e.target.value)} value={username} id='user-name-login' defaultValue={username}/>
             <style> 
                 {` 
                     ::placeholder { 
@@ -61,7 +75,7 @@ import './Login.css'
             </style> 
            </div>
          <div  className='Pass'>
-            <input type='password'placeholder='Enter Password'   id='pass' onChange={(e) =>setpass(e.target.value)}/>
+            <input type='password'placeholder='Enter Password'   id='pass' onChange={(e) =>setpass(e.target.value)}  value={pass}/>
     
          </div>
                   <div className='Register' >
