@@ -49,6 +49,19 @@ def get_db():
 db_dependency = Annotated[Session, Depends(get_db)]
 
 ############################################################################################################
+from passlib import CryptContext
+from datetime import datetime, timedelta
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+def get_password_hash(password):
+    return pwd_context.hash(password)
 ###############################################################################################
 # departments apis
 @app.get("/getDepartments", response_model=List[DepartmentModel])
@@ -87,8 +100,10 @@ async def Register(
     db: Session = Depends(get_db)
 ):
     try:
+
+        passwd = pwd_context.hash(password)
         logger.info("New user registration")
-        db_user = User(pID=position, deptID=department, email=usermail, passwd=password, username=username, mId=29)
+        db_user = User(pID=position, deptID=department, email=usermail, passwd=passwd, username=username, mId=29)
         db.add(db_user)
         db.commit()
         db.refresh(db_user)
@@ -113,7 +128,7 @@ async def Login(username: str = Form(...), password: str = Form(...), db: Sessio
     if not db_user:
         logger.warning(f"Login attempt with invalid username: {username}")
         return HTTPException(status_code=400, detail="Invalid Username")
-    if db_user.passwd != password:
+    if not pwd_context.verify(password, db_user.passwd):
         logger.warning(f"Incorrect password attempt for username: {username}")
         return HTTPException(status_code=400, detail="Wrong password")
     logger.info(f"User logged in: {username}")

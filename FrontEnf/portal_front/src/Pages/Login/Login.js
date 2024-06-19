@@ -50,7 +50,7 @@ import './Login.css'
         setpass('');
       }
       }catch (error){
-        alert(error.message());
+        alert(error);
       }
     }
     }
