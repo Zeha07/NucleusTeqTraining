@@ -1,146 +1,93 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../../Components/Header/Header';
-import EmpSingleCred from '../../Components/Employee_Credentials/EmpSingleCred';
-import DeleteDepartment from '../../Components/Departments/DeleteDepartment';
-import AddDepartment from '../../Components/Departments/AddDepartment';
-import EmployeeCredentials from '../../Components/Employee_Credentials/EmployeeCredentials';
-import ManagerCredentials from '../../Components/ManagerCredentials/ManagerCredentials';
-import SinglemanCredentials from '../../Components/ManagerCredentials/SinglemanCredentials';
+import React, { useEffect, useState } from 'react';
+import Header from '../../Components/Header/Header.js';
+import Claimnew from '../../Components/Claimnew/Claimnew.js';
 import './AdminHome.css';
-import { useLocation } from 'react-router-dom';
-// import Claimtable from '../../Components/Claimtable/Claimtable';
-import SingleReview from '../../Components/Review/SingleReview';
-import Review from '../../Components/Review/Review';
+import SeeAll from '../../Components/SeeAll/SeeAll.js';
+import Claimtable from '../../Components/Claimtable/Claimtable.js';
+import { useLocation, useNavigate } from "react-router-dom";
+import SeeDetails from '../../Components/Claimtable/SeeDetails.js';
 
-
-export default function AdminHome() {
+const AdminHome = () => {
     const location = useLocation();
     const { state: user } = location;
+    const navigate = useNavigate();
+    const [re, setre] = useState();
+    const [show, setshow] = useState(false);
+    const [showall, setshowall] = useState(false);
+    const [showalldata, setshowalldata] = useState([]);
+    const [showdata, setshowdata] = useState([]);
+    const [showdetails, setshowdetails] = useState(false);
+    const [showdetailsdata, setshowdetailsdata] = useState([]);
 
-    const [selectedDept, setSelectedDept] = useState();
-    const [showSingleEmp, setshowSingleEmp] = useState(false);
-    const [showsingleman, setshowsingleman] = useState(false);
-    const [showemps, setshowemps] = useState(false);
-    const [showDel, setShowDel] = useState(false);
-    const [showadd, setshowadd] = useState(false);
-    const [empData, setEmpData] = useState([]);
-    const [selectempId, setselectempId] = useState(null);
-    const [manData, setManData] = useState([]);
-    const [selectManId, setSelectManId] = useState(null);
-    const [showManager, setShowManager] = useState(false);
-const [showdata, setshowdata] = useState([]);
-    const [showreview, setshowreview] = useState(false);
-    const [singlereviewdata, setsinglereviewdata] = useState();
-    const [showsinglereview, setshowsinglereview] = useState(false);
-const [reviewdata, setreviewdata] = useState([]);
-const [del ,setdel] = useState(false);
-    
-    const handleselectempId = (emp) => {
-        setselectempId(emp);
-        setshowSingleEmp(true);
-    };
-
-    const handleselectManId = (emp) => {
-        setSelectManId(emp);
-        setshowsingleman(true);
-    };
-
-    const fetchEmpDetails = async () => {
-        try {
-            const response = await fetch('http://localhost:8000/employeescredentials');
-            const data = await response.json();
-            setEmpData(data);
-            setshowemps(true);
-        } catch (error) {
-            console.error("Failed to fetch employee credentials:", error);
-            alert("Error fetching employee credentials");
-        }
-    };
     useEffect(() => {
-        if (del === false && showemps===true) {
-            fetchEmpDetails();
+        if (!user) {
+            alert("You need to login first");
+            navigate("/");
+            return;
         }
-    }, [del]);
-    const fetchManDetails = async () => {
-        try {
-            const response = await fetch('http://localhost:8000/managerscredentials');
-            const data = await response.json();
-            setManData(data);
-            setShowManager(true);
-        } catch (error) {
-            console.error("Failed to fetch manager credentials:", error);
-            alert("Error fetching manager credentials");
-        }
-    };
 
+        const getUnapproved = async () => {
+            try {
+                const form = new FormData();
+                form.append("empId", user.empid);
+                const res = await fetch('http://localhost:8000/getselfimbursementsunapproved', {
+                    method: 'POST',
+                    body: form,
+                });
 
-    const fetchReviewData = async () => {
+                const data = await res.json();
+                setshowdata(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getUnapproved();
+    }, [user, navigate]);
+
+    const getshowalldata = async () => {
+        setshowall(true);
         try {
             const form = new FormData();
-            form.append("empid", user.empid);
-            const res = await fetch('http://localhost:8000/reviewadmin', {
+            form.append("empId", user.empid);
+            const res = await fetch('http://localhost:8000/getselfimbursementsall', {
                 method: "POST",
                 body: form,
             });
             const data = await res.json();
-            console.log('Fetched review data:', data);
-            setreviewdata(data);
-            
+            setshowalldata(data);
         } catch (error) {
-            console.error("Error fetching review data:", error);
+            console.error(error);
         }
     };
 
-    useEffect(() => {
-        fetchReviewData();
-    }, [user.empid]);
-
-    const handlesinglereviewchange = (review) => {
-        setsinglereviewdata(review);
-        console.log(review);
-        setshowsinglereview(true);
+    const handleshowdetails = (review) => {
+        setshowdetailsdata(review);
+        setshowdetails(true);
     };
-
 
     return (
         <div>
-            <Header name="Admin" />
-            <div className="buttons-container">
-                <div className="button-wrapper">
-                    <button className="action-button" onClick={() => setShowDel(true)}>
-                        <span className="button__text">Delete Department</span>
+            {user && <Header name={user.username} />}
+            <div className='Body-component'>
+                <div className='buttons-container'>
+                    <button className="action-button" onClick={() => setshow(!show)}>
+                        <span className="button__text">Claim New</span>
+                        <i className="button__icon fas fa-chevron-right"></i>
+                    </button>
+                    <button className="action-button" onClick={getshowalldata}>
+                        <span className="button__text">See All</span>
                         <i className="button__icon fas fa-chevron-right"></i>
                     </button>
                 </div>
-                <div className="button-wrapper">
-                     <button className="action-button" onClick={() => setshowadd(!showadd)}>
-                        <span className="button__text">Add New Department</span>
-                        <i className="button__icon fas fa-chevron-right"></i>
-                    </button>
-                    <button className="action-button" onClick={fetchEmpDetails}>
-                        <span className="button__text">Employee Credentials</span>
-                        <i className="button__icon fas fa-chevron-right"></i>
-                    </button>
-                    <button className="action-button" onClick={fetchManDetails}>
-                        <span className="button__text">Manager Credentials</span>
-                        <i className="button__icon fas fa-chevron-right"></i>
-                    </button>
+                <div className='Claimtable-comp-emp'>
+                    <Claimtable showdata={showdata} handleshowdetails={handleshowdetails} showreview={re} setshowreview={setre} backbuttondisabled={true} />
                 </div>
-                
+                {show && <Claimnew setshow={setshow} show={show} user={user} />}
+                {showall && <SeeAll setshowall={setshowall} showall={showall} showalldata={showalldata} />}
+                {showdetails && <SeeDetails showdetailsdata={showdetailsdata} showdetails={showdetails} setshowdetails={setshowdetails} />}
             </div>
-            <div className='Review-component'>
-                        <Review reviewdata={reviewdata} user={user} handlesinglereviewchange={handlesinglereviewchange} />
-                    </div>
-            {showsinglereview && <SingleReview singlereviewdata={singlereviewdata} showsinglereview={showsinglereview} setshowsinglereview={setshowsinglereview} user={user} refreshReviewData={fetchReviewData} />}
-            {/* {showreview && <Claimtable showdata={showdata} showreview={showreview} setshowreview={setshowreview} handlesinglereviewchange={handlesinglereviewchange} />} */}
-            {showemps && <EmployeeCredentials showemps={showemps} setshowemps={setshowemps} empData={empData} handleselectempId={handleselectempId}  />}
-            {showDel && <DeleteDepartment showDel={showDel} setShowDel={setShowDel} />}
-            {showadd && <AddDepartment showadd={showadd} setshowadd={setshowadd} />}
-            {showManager && <ManagerCredentials showmanager={showManager} setshowmanager={setShowManager} mandata={manData} handleselectManId={handleselectManId} />}
-            {showSingleEmp && selectempId && <EmpSingleCred selectempId={selectempId} showsingleemp={showSingleEmp} setshowsingleemp={setshowSingleEmp} del={del} setdel={setdel}/>}
-            {showsingleman && selectManId && <SinglemanCredentials selectManId={selectManId} showsingleman={showsingleman} setshowsingleman={setshowsingleman} />}
         </div>
     );
-}
+};
 
-
+export default AdminHome;
