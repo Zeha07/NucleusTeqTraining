@@ -132,3 +132,7 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2024-06-07 16:14:47,048 - main - INFO - Fetched reimbursements to review for manager ID: 19
 2024-06-07 16:15:16,959 - main - INFO - Fetched all reimbursements for employee ID: 19
 2024-06-07 16:15:45,788 - main - INFO - Fetched unapproved reimbursements for employee ID: 19
+2024-06-18 20:02:04,441 - main - WARNING - Incorrect password attempt for username: admin01
+2024-06-18 20:03:47,847 - main - WARNING - Incorrect password attempt for username: admin01
+2024-06-18 20:03:56,630 - main - WARNING - Login attempt with invalid username: admin
+2024-06-18 20:04:26,249 - main - WARNING - Login attempt with invalid username: admin

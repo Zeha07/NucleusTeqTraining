@@ -86,6 +86,9 @@ else {
 }
 let navigate = useNavigate();
   const handleformsubmit = async (event) =>{
+
+
+    
     event.preventDefault();
     const data = new FormData();
     data.append("position" , p);
@@ -100,7 +103,7 @@ let navigate = useNavigate();
         body :data,
       });
       if(!response.ok){
-        throw new Error("network error");
+        throw new Error(response.detail);
       }
       const result = await response.json();
       alert("Registered successfully");
